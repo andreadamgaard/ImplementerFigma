@@ -1,0 +1,146 @@
+---
+
+---
+
+<section>
+  <div class="card">
+    <article>
+      <h1>OUR VISION</h1>
+      <p class="bold">Turn your ideas into reality.</p>
+      <p>Capitalize on low hanging fruit to identify a ballpark value added activity beta test. Override the digital divide with additional from DevOps.</p>
+      <ul>
+        <li>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day.</li>
+        <li>Capitalize on low hanging fruit to identify a ballpark value added activity to beta test override the digital.</li>
+      </ul>
+    </article>
+    <figure>
+      <img src="/images/imgVision.png" alt="vision image" />
+    </figure>
+  </div>
+  <div>
+    <dl>
+      <div>
+        <dt>Successful Work</dt>
+        <dd>1128+</dd>
+      </div>
+      <div>
+        <dt>Team member</dt>
+        <dd>908+</dd>
+      </div>
+      <div>
+        <dt>Happy Customers</dt>
+        <dd>258+</dd>
+      </div>
+      <div>
+        <dt>Creative Idea</dt>
+        <dd>564+</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+<style>
+  .card {
+    display: flex;
+    gap: 7.625rem;
+    width: var(--content-width);
+
+    article {
+      display: flex;
+      flex-direction: column;
+      gap: 1.19rem;
+
+      h1 {
+        color: var(--color-text-big-white);
+        font-size: var(--font-size-1);
+        line-height: var(--lineheight-2);
+        letter-spacing: var(--letter-space-s);
+        padding: 0rem 0.6875rem;
+        background: var(--bg-color-green);
+        width: fit-content;
+        border-radius: 1.25rem;
+      }
+      .bold {
+        color: var(--color-text-big);
+        font-family: var(--h-font);
+        font-size: var(--font-size-4);
+        font-weight: var(--font-weight-3);
+        line-height: 3.263rem;
+      }
+      p {
+        color: var(--color-text-p);
+        font-size: var(--font-size-1);
+        line-height: var(--lineheight-2);
+      }
+      ul {
+        display: grid;
+        gap: 1rem;
+        padding: 0;
+        font-family: var(--h-font);
+        font-size: var(--font-size-1);
+        line-height: var(--lineheight-0);
+        color: var(--color-text-p);
+
+        li {
+          display: flex;
+          align-items: start;
+          gap: 1rem;
+          font-size: 1rem;
+        }
+        li:before {
+          content: "";
+          flex-shrink: 0;
+          width: 1.6rem;
+          aspect-ratio: 1;
+          background: var(--checkmark-icon) 50% 50% / contain no-repeat;
+        }
+      }
+    }
+  }
+
+  figure {
+    position: relative;
+    align-self: end;
+
+    img {
+      border-radius: 1.3rem;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      right: -1rem;
+      top: -1rem;
+      background: url("/images/pattern.svg");
+      width: 226.2px;
+      height: 226.2px;
+      z-index: -1;
+    }
+  }
+
+  img {
+    inline-size: 100%;
+    display: block;
+  }
+
+  dl {
+    margin: 3rem;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    font-family: var(--h-font);
+    color: var(--color-text-big);
+    font-weight: var(--font-weight-3);
+    line-height: var(--lineheight-3);
+
+    > * {
+      display: flex;
+      flex-direction: column-reverse;
+      font-size: 1.125rem;
+
+      :last-child {
+        font-size: var(--font-size-6);
+        font-weight: var(--font-weight-1);
+      }
+    }
+  }
+</style>

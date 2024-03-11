@@ -1,0 +1,24 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Lato&display=swap" rel="stylesheet" />
+    <title>Figma implementering</title>
+  </head>
+  <body>
+    <header>
+      <Header hColor="yellow" imagePath="/src/assets/headerAbout.png" altText="header about img" headerText="SERVICES" description="Creative Services For Boost Your Business Growth" />
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer></footer>
+  </body>
+</html>

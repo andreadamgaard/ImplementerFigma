@@ -1,0 +1,78 @@
+@import "./reset.css" layer(reset);
+
+:root {
+  /*Background colors*/
+
+  --bg-color: #fff;
+
+  --bg-color-green: #4eaf4e;
+  --bg-color-yellow: #ffcc4a;
+  --bg-color-black: #181818;
+
+  --header-box: rgba(255, 255, 255, 0.85);
+
+  /*Fonts*/
+  --copy-font: "Lato", sans-serif;
+  --h-font: "Cabin", sans-serif;
+
+  /*Font color*/
+  --color-text-p: #595566;
+  --color-text-big: #181818;
+  --color-text-big-white: #fff;
+
+  /*Font size*/
+  --font-size-1: 1rem;
+  --font-size-2: 1.25rem;
+  --font-size-3: 1.875rem;
+  --font-size-4: 2.8125rem;
+  --font-size-5: 3.125rem;
+  --font-size-6: 3.625rem;
+  /*måske clam til responsivt?*/
+
+  /*Font weight*/
+  --font-weight-1: 500;
+  --font-weight-2: 600;
+  --font-weight-3: 700;
+
+  /*Letter space*/
+  --letter-space-s: 0.145rem;
+  --letter-space-l: 3.2625rem;
+
+  /*Line heights*/
+  --lineheight-0: 1.16rem;
+  --lineheight-1: 1.45rem;
+  --lineheight-2: 1.475rem;
+  --lineheight-3: 3.625rem;
+  --lineheight-ul: 1.16rem;
+
+  /*Checkmark*/
+  --checkmark-icon: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="%234EAF4E" d="M176.49 95.51a12 12 0 0 1 0 17l-56 56a12 12 0 0 1-17 0l-24-24a12 12 0 1 1 17-17L112 143l47.51-47.52a12 12 0 0 1 16.98.03M236 128A108 108 0 1 1 128 20a108.12 108.12 0 0 1 108 108m-24 0a84 84 0 1 0-84 84a84.09 84.09 0 0 0 84-84"/></svg>');
+
+  --content-width: 75rem;
+}
+
+body {
+  background: var(--bg-color);
+  font-family: var(--copy-font);
+  font-size: var(--font-size-1);
+  line-height: var(--lineheight-2);
+  color: var(--color-text-p);
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--h-font);
+  color: var(--color-text-big);
+}

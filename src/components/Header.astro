@@ -1,0 +1,67 @@
+---
+import "../styles/global.css";
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+const { imagePath, altText, headerText, description, hColor = "yellow" } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/*.{jpeg,jpg,png,gif}");
+if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
+---
+
+<section>
+  <Image width={1500} src={images[imagePath]()} alt={altText} />
+  <article>
+    <div class="txt">
+      <h1 data-variant={hColor}>{headerText}</h1>
+      <p>{description}</p>
+    </div>
+  </article>
+</section>
+
+<style>
+  /* Gridstack/overlay til coverbilledet */
+
+  section {
+    display: grid;
+    align-items: start;
+    > * {
+      grid-area: 1 / 1;
+    }
+    container: header / inline-size;
+  }
+  article {
+    margin-inline-start: 19cqi;
+    margin-inline-end: 30cqi;
+    margin-block-start: 10cqi;
+    background-color: var(--header-box);
+    border-radius: 1.8125rem;
+    backdrop-filter: blur(5.5px);
+
+    .txt {
+      display: grid;
+      padding: 3rem 3.75rem 3.625rem 3.75rem;
+      gap: 1.3rem;
+
+      h1 {
+        color: var(--color-text-big);
+        font-size: var(--font-size-1);
+        line-height: var(--lineheight-2);
+        letter-spacing: var(--letter-space-s);
+        padding: 0rem 0.9375rem;
+      }
+
+      p {
+        color: var(--color-text-big);
+        font-size: var(--font-size-5);
+        line-height: var(--lineheight-3);
+        font-weight: var(--font-weight-3);
+      }
+    }
+  }
+
+  [data-variant="yellow"] {
+    background: var(--bg-color-yellow);
+    width: fit-content;
+    border-radius: 1.25rem;
+  }
+</style>
