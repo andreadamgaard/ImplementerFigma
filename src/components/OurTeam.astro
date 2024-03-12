@@ -1,0 +1,65 @@
+---
+
+---
+
+<section class="full_bleed">
+  <article>
+    <h1>Our team</h1>
+    <p class="bold">We champion the bold to achieve the extraordinary</p>
+    <p>Ippsum is the result of synergy between our teams and our customers. Our company culture is focused on excellent productivity, customer satisfaction, respect for team.</p>
+  </article>
+  <div class="theTeam"></div>
+</section>
+
+<style>
+  section {
+    display: grid;
+    grid-template-columns: [full-start] 1fr [content] minmax(0, var(--content-width)) 1fr [full-end];
+    column-gap: 1rem;
+    background-color: #f5f5f5;
+
+    /* Alle direkte børn starter på col 2 */
+    > * {
+      grid-column: content;
+      margin-top: 6.25rem;
+    }
+
+    .full_bleed {
+      grid-column: full;
+    }
+
+    article {
+      display: flex;
+      flex-direction: column;
+      h1 {
+        color: var(--color-text-big);
+        font-family: var(--copy-font);
+        font-size: var(--font-size-1);
+        line-height: var(--lineheight-2);
+        letter-spacing: var(--letter-space-s);
+        padding: 0rem 0.6875rem;
+        background: var(--bg-color-yellow);
+        width: fit-content;
+        text-transform: uppercase;
+        border-radius: 1.25rem;
+        margin-bottom: 1.38rem;
+      }
+      .bold {
+        color: var(--color-text-big);
+        font-family: var(--h-font);
+        font-size: var(--font-size-4);
+        font-weight: var(--font-weight-3);
+        line-height: 3.263rem;
+        width: 29.875rem;
+        padding-bottom: 0.69rem;
+      }
+      p {
+        color: var(--color-text-p);
+        font-size: var(--font-size-1);
+        line-height: var(--lineheight-2);
+        width: 45.75rem;
+        padding-bottom: 2.75rem;
+      }
+    }
+  }
+</style>

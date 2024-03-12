@@ -3,7 +3,7 @@ import GrowingCard from "../components/GrowingCard.astro";
 ---
 
 <section class="full_bleed">
-  <article>
+  <article class="first">
     <div class="text">
       <h1>Growing with our Clients</h1>
       <p class="bold">Our core values & principles</p>
@@ -13,8 +13,11 @@ import GrowingCard from "../components/GrowingCard.astro";
       <button type="button">Get in touch</button>
     </div>
   </article>
-  <article>
-    <GrowingCard />
+  <article class="cards">
+    <GrowingCard iconName="stack" Header="Creative Ideas" body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget accumsan augue Donec aliquam." />
+    <GrowingCard iconName="columns" Header="Best Features" body="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+    <GrowingCard iconName="globe" Header="Experience" body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget accumsan augue Donec aliquam." />
+    <GrowingCard iconName="hjul" Header="Easy Solutions" body="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
   </article>
 </section>
 
@@ -34,7 +37,7 @@ import GrowingCard from "../components/GrowingCard.astro";
     .full_bleed {
       grid-column: full;
     }
-    article {
+    .first {
       display: flex;
       justify-content: space-between;
       .text {
@@ -43,6 +46,7 @@ import GrowingCard from "../components/GrowingCard.astro";
         width: 36.75rem;
         h1 {
           text-transform: uppercase;
+          font-family: var(--copy-font);
           color: var(--color-text-big);
           font-size: var(--font-size-1);
           line-height: var(--lineheight-2);
@@ -67,7 +71,12 @@ import GrowingCard from "../components/GrowingCard.astro";
         }
       }
     }
-
+    .cards {
+      display: flex;
+      justify-content: space-between;
+      gap: 2.1rem;
+      margin-bottom: 6.25rem;
+    }
     .btn {
       display: flex;
       align-items: end;
@@ -78,6 +87,12 @@ import GrowingCard from "../components/GrowingCard.astro";
         color: var(--color-text-big-white);
         background-color: var(--bg-color-black);
         border-radius: 2.625rem;
+        transition: 0.5s;
+        border: solid var(--bg-color-black) 1px;
+      }
+      button:hover {
+        color: var(--bg-color-black);
+        background-color: var(--color-text-big-white);
       }
     }
   }

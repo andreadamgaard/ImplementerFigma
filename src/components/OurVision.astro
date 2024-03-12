@@ -1,5 +1,10 @@
 ---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
 
+const { imagePath, altText } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/*.{jpeg,jpg,png,gif}");
+if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
 ---
 
 <section>
@@ -14,7 +19,8 @@
       </ul>
     </article>
     <figure>
-      <img src="/images/imgVision.png" alt="vision image" />
+      <Image src={images[imagePath]()} alt={altText} />
+      <!-- <img src="/images/imgVision.png" alt="vision image" /> -->
     </figure>
   </div>
   <div>
@@ -56,6 +62,7 @@
 
       h1 {
         color: var(--color-text-big-white);
+        font-family: var(--copy-font);
         font-size: var(--font-size-1);
         line-height: var(--lineheight-2);
         letter-spacing: var(--letter-space-s);

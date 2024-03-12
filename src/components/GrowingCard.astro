@@ -1,9 +1,70 @@
 ---
-
+import { Icon } from "astro-icon/components";
+const { iconName, Header, body } = Astro.props;
 ---
 
 <article>
-  <img src="" alt="" />
+  <Icon name={iconName} />
+  <div class="growText">
+    <h2>{Header}</h2>
+    <p>{body}</p>
+  </div>
+  <div class="link">
+    <a href="">Read more</a>
+    <Icon name="arrow" />
+  </div>
 </article>
 
-<style></style>
+<style>
+  article {
+    display: flex;
+    flex-direction: column;
+    gap: 1.375rem;
+    width: fit-content;
+    height: fit-content;
+    background: var(--bg-color);
+    border: 1px solid #eaeaea;
+    border-radius: 1.25rem;
+    padding: 2.25rem 1.4375rem;
+
+    .growText {
+      width: 14.125rem;
+
+      h2 {
+        color: var(--color-text-big);
+        font-size: var(--font-size-2);
+        font-weight: var(--font-weight-2);
+        line-height: var(--lineheight-1);
+        margin-bottom: 0.62rem;
+      }
+      p {
+      }
+    }
+    .link {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+      a {
+        color: var(--color-text-big);
+        font-size: 1.125rem;
+        font-weight: var(--font-weight-2);
+        line-height: 1.8rem;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+      :hover {
+        color: var(--bg-color-yellow);
+      }
+    }
+  }
+
+  [data-icon] {
+    width: 3.29863rem;
+    height: 3.29863rem;
+  }
+
+  [data-icon="arrow"] {
+    width: 0.81675rem;
+    height: 0.66825rem;
+  }
+</style>

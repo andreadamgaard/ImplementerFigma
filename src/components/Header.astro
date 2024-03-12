@@ -28,11 +28,17 @@ if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: 
       grid-area: 1 / 1;
     }
     container: header / inline-size;
+
+    img {
+      align-self: stretch;
+      object-fit: cover;
+    }
   }
   article {
     margin-inline-start: 19%;
     margin-inline-end: 30%;
     margin-block-start: 10%;
+    margin-block-end: 10%;
     background-color: var(--header-box);
     border-radius: 1.8125rem;
     backdrop-filter: blur(5.5px);
@@ -44,6 +50,7 @@ if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: 
 
       h1 {
         color: var(--color-text-big);
+        font-family: var(--copy-font);
         font-size: var(--font-size-1);
         line-height: var(--lineheight-2);
         letter-spacing: var(--letter-space-s);

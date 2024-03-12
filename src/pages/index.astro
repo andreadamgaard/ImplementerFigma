@@ -1,12 +1,15 @@
 ---
 import "../styles/global.css";
 import MainLayout from "../layout/MainLayout.astro";
-import Header from "../components/Header.astro";
 import OurVision from "../components/OurVision.astro";
 import Growing from "../components/Growing.astro";
+import History from "../components/History.astro";
+import OurTeam from "../components/OurTeam.astro";
 ---
 
 <MainLayout>
-  <OurVision />
+  <OurVision imagePath="/src/assets/imgVision.png" altText="Image for Vision" />
   <Growing />
+  <History imagePath="/src/assets/ourHistory.png" , altText="Image for our history " />
+  <OurTeam />
 </MainLayout>
