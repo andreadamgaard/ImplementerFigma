@@ -39,15 +39,20 @@
   </div>
 </section>
 <style>
+  section {
+    margin-top: 5.95rem;
+  }
   .card {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
     gap: 7.625rem;
-    width: var(--content-width);
 
     article {
       display: flex;
       flex-direction: column;
       gap: 1.19rem;
+      max-width: 36.875rem;
 
       h1 {
         color: var(--color-text-big-white);
@@ -105,11 +110,22 @@
       border-radius: 1.3rem;
     }
 
+    &::after {
+      content: "";
+      position: absolute;
+      right: -2rem;
+      top: -1rem;
+      background: var(--bg-color-green);
+      width: 126.2px;
+      height: 126.2px;
+      z-index: -1;
+      border-radius: 1.3rem;
+    }
     &::before {
       content: "";
       position: absolute;
-      right: -1rem;
-      top: -1rem;
+      right: -4.5rem;
+      top: -2.9rem;
       background: url("/images/pattern.svg");
       width: 226.2px;
       height: 226.2px;
@@ -123,7 +139,7 @@
   }
 
   dl {
-    margin: 3rem;
+    margin: 3.12rem 3rem 8rem 3rem;
     text-align: center;
     display: flex;
     justify-content: space-around;

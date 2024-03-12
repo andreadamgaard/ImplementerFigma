@@ -1,0 +1,84 @@
+---
+import GrowingCard from "../components/GrowingCard.astro";
+---
+
+<section class="full_bleed">
+  <article>
+    <div class="text">
+      <h1>Growing with our Clients</h1>
+      <p class="bold">Our core values & principles</p>
+      <p>Capitalize on low hanging fruit to identify a ballpark value added activity beta test. Override the digital divide with additional from DevOps.</p>
+    </div>
+    <div class="btn">
+      <button type="button">Get in touch</button>
+    </div>
+  </article>
+  <article>
+    <GrowingCard />
+  </article>
+</section>
+
+<style>
+  section {
+    display: grid;
+    grid-template-columns: [full-start] 1fr [content] minmax(0, var(--content-width)) 1fr [full-end];
+    column-gap: 1rem;
+    background-color: #f5f5f5;
+
+    /* Alle direkte børn starter på col 2 */
+    > * {
+      grid-column: content;
+      margin-top: 6.25rem;
+    }
+
+    .full_bleed {
+      grid-column: full;
+    }
+    article {
+      display: flex;
+      justify-content: space-between;
+      .text {
+        display: grid;
+        gap: 0.69rem;
+        width: 36.75rem;
+        h1 {
+          text-transform: uppercase;
+          color: var(--color-text-big);
+          font-size: var(--font-size-1);
+          line-height: var(--lineheight-2);
+          letter-spacing: var(--letter-space-s);
+          padding: 0rem 0.6875rem;
+          background: var(--bg-color-yellow);
+          width: fit-content;
+          border-radius: 1.25rem;
+          gap: 0.5rem;
+        }
+        .bold {
+          color: var(--color-text-big);
+          font-family: var(--h-font);
+          font-size: var(--font-size-4);
+          font-weight: var(--font-weight-3);
+          line-height: 3.263rem;
+        }
+        p {
+          color: var(--color-text-p);
+          font-size: var(--font-size-1);
+          line-height: var(--lineheight-2);
+        }
+      }
+    }
+
+    .btn {
+      display: flex;
+      align-items: end;
+
+      button {
+        width: 10.4375rem;
+        padding: 0.9375rem 2.125rem;
+        color: var(--color-text-big-white);
+        background-color: var(--bg-color-black);
+        border-radius: 2.625rem;
+      }
+    }
+  }
+</style>

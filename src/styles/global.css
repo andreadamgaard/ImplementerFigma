@@ -57,15 +57,6 @@ body {
   font-size: var(--font-size-1);
   line-height: var(--lineheight-2);
   color: var(--color-text-p);
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  align-self: center;
 }
 
 h1,
