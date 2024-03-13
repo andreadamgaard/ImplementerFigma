@@ -3,13 +3,114 @@ import { Icon } from "astro-icon/components";
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
 
-const { imagePath, altText } = Astro.props;
+const { imagePath, altText, variant, title, name, disription } = Astro.props;
 const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/*.{jpeg,jpg,png,gif}");
 if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
 ---
 
-<article>
-  <figure>
-    <Image src={images[imagePath]()} alt={altText} />
-  </figure>
-</article>
+<section class="teamCards">
+  <article>
+    <figure>
+      <Image src={images[imagePath]()} alt={altText} />
+      <h2 data-variant={variant}>{title}</h2>
+    </figure>
+    <p class="boldEmployee">{name}</p>
+    <p class="employedes">{disription}</p>
+  </article>
+
+  <div class="socials">
+    <Icon name="insta" />
+    <Icon name="fb" />
+    <Icon name="twitter" />
+  </div>
+</section>
+
+<style>
+  article {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    max-width: 22rem;
+
+    figure {
+      display: grid;
+      position: relative;
+      place-items: end end;
+      padding-bottom: 1.56rem;
+      > * {
+        grid-area: 1 / 1;
+      }
+      img {
+        border-radius: 1.75rem;
+      }
+      h2 {
+        font-family: var(--copy-font);
+        color: var(--color-text-big);
+        font-size: var(--font-size-1);
+        font-weight: var(--font-weight-2);
+        line-height: 1.6rem;
+        padding: 0.25rem 1.3125rem;
+        border-radius: 1.8125rem;
+        width: fit-content;
+        margin-block-end: 5%;
+        margin-inline-end: 5%;
+      }
+    }
+    [data-variant="yellow"] {
+      background-color: var(--bg-color-yellow);
+    }
+    [data-variant="black"] {
+      background-color: var(--bg-color-black);
+      color: var(--color-text-big-white);
+    }
+
+    .boldEmployee {
+      color: var(--color-text-big);
+      font-family: var(--h-font);
+      font-size: var(--font-size-3);
+      font-weight: var(--font-weight-3);
+      line-height: 2.175rem;
+      padding-bottom: 0.69rem;
+      max-width: 22rem;
+    }
+
+    .employedes {
+      width: 20.5rem;
+      line-height: var(--lineheight-2);
+      font-size: var(--font-size-1);
+      padding-bottom: 1.69rem;
+    }
+  }
+  .socials {
+    display: flex;
+    justify-content: center;
+    max-width: 22rem;
+    gap: 1.8125rem;
+    [data-icon="insta"] {
+      width: 1.50038rem;
+      height: 1.44381rem;
+      transition: 0.3s;
+    }
+    [data-icon="insta"]:hover {
+      scale: 1.4;
+    }
+
+    [data-icon="fb"] {
+      width: 1.55038rem;
+      height: 1.44344rem;
+      transition: 0.3s;
+    }
+    [data-icon="fb"]:hover {
+      scale: 1.4;
+    }
+    [data-icon="twitter"] {
+      width: 1.44731rem;
+      height: 1.15706rem;
+      transition: 0.3s;
+    }
+    [data-icon="twitter"]:hover {
+      scale: 1.4;
+    }
+  }
+</style>

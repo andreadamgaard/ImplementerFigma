@@ -1,0 +1,177 @@
+---
+import { Icon } from "astro-icon/components";
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+const { imagePath, imagePath1, imagePath2, altText, title, name, disription } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/*.{jpeg,jpg,png,gif}");
+if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
+if (!images[imagePath1]) throw new Error(`"${imagePath1}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
+if (!images[imagePath2]) throw new Error(`"${imagePath2}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
+---
+
+<section>
+  <div>
+    <article class="txtBtm">
+      <h1>Book Now</h1>
+      <p class="bold">Better Consult, <span>Better</span> Results</p>
+      <p class="description">Our software development agency has a growth up to 30% per each year. If you are result-oriented, not afraid to take initiative – drop us a note and join our team!</p>
+      <div class="callBtn">
+        <Icon name="phone" />
+        <p class="phone-nr">+800 1234 654</p>
+      </div>
+    </article>
+    <figure>
+      <Image class="image1" src={images[imagePath]()} alt={altText} />
+      <div class="imgLong">
+        <Image src={images[imagePath1]()} alt={altText} />
+        <Image src={images[imagePath2]()} alt={altText} />
+      </div>
+    </figure>
+  </div>
+</section>
+
+<style>
+  section {
+    container: main-content / inline-size;
+
+    display: grid;
+    grid-template-columns: [full-start] 1fr [content] minmax(0, var(--content-width)) 1fr [full-end];
+    column-gap: 1rem;
+    margin-top: 6.25rem;
+    margin-bottom: 9.39rem;
+
+    > * {
+      grid-column: content;
+      background-color: var(--bg-color-black);
+      color: var(--color-text-big-white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      max-width: 75.001rem;
+      place-self: center;
+      max-height: 32.82831rem;
+      border-radius: 1.875rem;
+      overflow: hidden;
+      padding: 7.22rem 5.62rem 7.19rem 5.62rem;
+      gap: 4.5625rem;
+    }
+
+    span {
+      color: #727272;
+    }
+    .txtBtm {
+      display: flex;
+      flex-direction: column;
+      max-width: 26.71306rem;
+
+      h1 {
+        color: var(--color-text-big-white);
+        font-family: var(--copy-font);
+        font-size: var(--font-size-1);
+        line-height: var(--lineheight-2);
+        letter-spacing: var(--letter-space-s);
+        padding: 0rem 0.9375rem;
+        background: var(--bg-color-green);
+        width: fit-content;
+        text-transform: uppercase;
+        border-radius: 1.25rem;
+        margin-bottom: 0.5rem;
+      }
+      .bold {
+        color: var(--color-text-big-white);
+        font-family: var(--h-font);
+        font-size: var(--font-size-4);
+        font-weight: var(--font-weight-3);
+        line-height: 3.263rem;
+        margin-bottom: 0.5rem;
+      }
+      .description {
+        color: var(--color-text-big-white);
+        font-size: var(--font-size-1);
+        line-height: var(--lineheight-2);
+        margin-bottom: 1.31rem;
+      }
+      .callBtn {
+        display: flex;
+        justify-content: center;
+        padding: 1rem 1.3125rem;
+        width: fit-content;
+        border-radius: 2.625rem;
+        background-color: var(--bg-color-yellow);
+
+        .phone-nr {
+          color: var(--color-text-big);
+          font-size: 1.125rem;
+          font-weight: var(--font-weight-2);
+          line-height: 1.8rem;
+        }
+
+        [data-icon="phone"] {
+          width: 1.35056rem;
+          height: 1.35056rem;
+          place-self: center;
+        }
+      }
+    }
+
+    figure {
+      display: grid;
+      align-items: center;
+      position: relative;
+
+      > * {
+        grid-area: 1/1;
+      }
+      container: header / inline-size;
+
+      .image1 {
+        background-color: var(--bg-color-yellow);
+        max-width: 17.5rem;
+        border-bottom-left-radius: 1.0625rem;
+        border-bottom-right-radius: 1.0625rem;
+        margin-inline-start: 40%;
+        margin-block-start: -60%;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        right: 20rem;
+        top: 1.5rem;
+        background: var(--bg-color-green);
+        max-width: 8.16594rem;
+        height: 9.08556rem;
+        z-index: -1;
+        border-radius: 1.3rem;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        right: 13.3rem;
+        top: 0rem;
+        background: url("/images/pattern.svg");
+        background-repeat: no-repeat;
+        max-width: 15.94rem;
+        height: 19.58rem;
+        z-index: -1;
+      }
+      .imgLong {
+        max-width: 26rem;
+        margin-inline-start: 0%;
+        margin-block-start: 10%;
+        :first-child {
+          border-top-right-radius: 1.0625rem;
+          border-top-left-radius: 1.0625rem;
+        }
+      }
+    }
+    @container main-content (width < 700px) {
+      > * {
+        display: flex;
+        flex-direction: column;
+      }
+      figure {
+        display: none;
+      }
+    }
+  }
+</style>

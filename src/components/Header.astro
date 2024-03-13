@@ -65,10 +65,24 @@ if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: 
       }
     }
   }
-
   [data-variant="yellow"] {
     background: var(--bg-color-yellow);
     width: fit-content;
     border-radius: 1.25rem;
+  }
+
+  @container header (width < 1200px) {
+    p {
+      font-size: var(--font-size-2);
+      line-height: var(--lineheight-2);
+    }
+  }
+
+  @container header (width < 650px) {
+    article {
+      max-inline-size: 20rem;
+      place-self: center;
+      margin-inline: 1cqi;
+    }
   }
 </style>

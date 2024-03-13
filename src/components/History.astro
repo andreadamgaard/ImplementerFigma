@@ -9,50 +9,59 @@ if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: 
 ---
 
 <section>
-  <h1>Our History</h1>
-  <p class="bold">Better Website Means A User Experience</p>
-  <p>Ippsum is the result of synergy between our teams and our customers. Our company culture is focused on excellent productivity, customer satisfaction, respect for team and individual achievements.</p>
-  <figure>
-    <Image src={images[imagePath]()} alt={altText} />
-    <Icon name="playbtn" />
-  </figure>
+  <article>
+    <h1>Our History</h1>
+    <p class="bold">Better Website Means A User Experience</p>
+    <p>Ippsum is the result of synergy between our teams and our customers. Our company culture is focused on excellent productivity, customer satisfaction, respect for team and individual achievements.</p>
+    <figure>
+      <Image src={images[imagePath]()} alt={altText} />
+      <Icon name="playbtn" />
+    </figure>
+  </article>
 </section>
 
 <style>
   section {
+    container: main-content / inline-size;
+
     display: flex;
     flex-direction: column;
     place-items: center;
-    text-align: center;
-    padding: 9.38rem;
-    h1 {
-      color: var(--color-text-big-white);
-      font-family: var(--copy-font);
-      font-size: var(--font-size-1);
-      line-height: var(--lineheight-2);
-      letter-spacing: var(--letter-space-s);
-      padding: 0rem 0.6875rem;
-      background: var(--bg-color-green);
-      width: fit-content;
-      border-radius: 1.25rem;
-      margin-bottom: 1.38rem;
-      text-transform: uppercase;
-    }
-    .bold {
-      color: var(--color-text-big);
-      font-family: var(--h-font);
-      font-size: var(--font-size-4);
-      font-weight: var(--font-weight-3);
-      line-height: 3.263rem;
-      width: 29.875rem;
-      padding-bottom: 0.69rem;
-    }
-    p {
-      color: var(--color-text-p);
-      font-size: var(--font-size-1);
-      line-height: var(--lineheight-2);
-      width: 45.75rem;
-      padding-bottom: 2.75rem;
+
+    article {
+      padding: 9.38rem;
+      display: grid;
+      place-items: center;
+      text-align: center;
+
+      h1 {
+        color: var(--color-text-big-white);
+        font-family: var(--copy-font);
+        font-size: var(--font-size-1);
+        line-height: var(--lineheight-2);
+        letter-spacing: var(--letter-space-s);
+        padding: 0rem 0.6875rem;
+        background: var(--bg-color-green);
+        border-radius: 1.25rem;
+        margin-bottom: 1.38rem;
+        text-transform: uppercase;
+      }
+      .bold {
+        color: var(--color-text-big);
+        font-family: var(--h-font);
+        font-size: var(--font-size-4);
+        font-weight: var(--font-weight-3);
+        line-height: 3.263rem;
+        max-width: 29.875rem;
+        padding-bottom: 0.69rem;
+      }
+      p {
+        color: var(--color-text-p);
+        font-size: var(--font-size-1);
+        line-height: var(--lineheight-2);
+        padding-bottom: 2.75rem;
+        max-width: 45.75rem;
+      }
     }
 
     figure {
@@ -67,13 +76,15 @@ if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: 
       img {
         border-radius: 1.75rem;
         filter: brightness(75%);
+        align-self: stretch;
+        object-fit: cover;
       }
 
       &::after {
         content: "";
         position: absolute;
-        right: 48rem;
-        top: 12rem;
+        right: 44rem;
+        top: 10rem;
         background: var(--bg-color-green);
         width: 10.25rem;
         height: 11.4375rem;
@@ -97,6 +108,33 @@ if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: 
         display: flex;
         place-self: center;
         z-index: 1;
+        transition: 0.3s;
+      }
+      [data-icon="playbtn"]:hover {
+        scale: 1.2;
+      }
+    }
+
+    @container main-content (width < 700px) {
+      article {
+        padding: 4rem;
+
+        figure {
+          padding-bottom: 4rem;
+          img {
+            width: 450px;
+          }
+
+          &::after {
+            display: none;
+          }
+          &::before {
+            display: none;
+          }
+        }
+        p {
+          min-width: 26rem;
+        }
       }
     }
   }

@@ -1,5 +1,5 @@
 ---
-
+import TeamCard from "./TeamCard.astro";
 ---
 
 <section class="full_bleed">
@@ -8,11 +8,17 @@
     <p class="bold">We champion the bold to achieve the extraordinary</p>
     <p>Ippsum is the result of synergy between our teams and our customers. Our company culture is focused on excellent productivity, customer satisfaction, respect for team.</p>
   </article>
-  <div class="theTeam"></div>
+  <div class="theTeam">
+    <TeamCard imagePath="/src/assets/employee.png" altText="Sarah Jasmine" variant="yellow" title="CEO at Company" name="Sarah Jasmine" disription="Leverage agile frameworks to provide a robust synopsis for high level overviews." />
+    <TeamCard imagePath="/src/assets/employee.png" altText="John Carter" variant="black" title="Manager" name="John Carter" disription="Leverage agile frameworks to provide a robust synopsis for high level overviews." />
+    <TeamCard imagePath="/src/assets/employee.png" altText="Daisy Stella" variant="black" title="CEO at Company" name="Sarah Jasmine" disription="Leverage agile frameworks to provide a robust synopsis for high level overviews." />
+  </div>
 </section>
 
 <style>
   section {
+    container: main-content / inline-size;
+
     display: grid;
     grid-template-columns: [full-start] 1fr [content] minmax(0, var(--content-width)) 1fr [full-end];
     column-gap: 1rem;
@@ -50,15 +56,31 @@
         font-size: var(--font-size-4);
         font-weight: var(--font-weight-3);
         line-height: 3.263rem;
-        width: 29.875rem;
+        max-width: 31.125rem;
         padding-bottom: 0.69rem;
       }
       p {
         color: var(--color-text-p);
         font-size: var(--font-size-1);
         line-height: var(--lineheight-2);
-        width: 45.75rem;
-        padding-bottom: 2.75rem;
+        max-width: 40.1875rem;
+      }
+    }
+
+    .theTeam {
+      margin-top: 2.75rem;
+      display: flex;
+      gap: 3.1875rem;
+      margin-bottom: 6.25rem;
+    }
+
+    @container main-content (width < 700px) {
+      .theTeam {
+        flex-direction: column;
+        place-self: center;
+        margin-bottom: 6.25rem;
+
+        /* scroll container her også */
       }
     }
   }

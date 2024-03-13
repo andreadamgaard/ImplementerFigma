@@ -25,10 +25,9 @@ import GrowingCard from "../components/GrowingCard.astro";
   section {
     display: grid;
     grid-template-columns: [full-start] 1fr [content] minmax(0, var(--content-width)) 1fr [full-end];
-    column-gap: 1rem;
+    column-gap: 2rem;
     background-color: #f5f5f5;
-
-    /* Alle direkte børn starter på col 2 */
+    container: main-content / inline-size;
     > * {
       grid-column: content;
       margin-top: 6.25rem;
@@ -40,10 +39,11 @@ import GrowingCard from "../components/GrowingCard.astro";
     .first {
       display: flex;
       justify-content: space-between;
+      gap: 1rem;
       .text {
         display: grid;
         gap: 0.69rem;
-        width: 36.75rem;
+        max-width: 36.75rem;
         h1 {
           text-transform: uppercase;
           font-family: var(--copy-font);
@@ -93,6 +93,26 @@ import GrowingCard from "../components/GrowingCard.astro";
       button:hover {
         color: var(--bg-color-black);
         background-color: var(--color-text-big-white);
+      }
+    }
+    @container main-content (width < 700px) {
+      > * {
+        margin-top: 4rem;
+      }
+      .first {
+        gap: 0rem;
+      }
+      article {
+        display: flex;
+        flex-direction: column;
+
+        .btn {
+          margin-top: 2rem;
+        }
+      }
+      .cards {
+        margin-bottom: 4rem;
+        /* scroll container her  */
       }
     }
   }
