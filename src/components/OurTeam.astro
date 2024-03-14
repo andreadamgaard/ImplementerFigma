@@ -73,15 +73,14 @@ import TeamCard from "./TeamCard.astro";
       gap: 3.1875rem;
       margin-bottom: 6.25rem;
     }
+  }
 
-    @container main-content (width < 700px) {
-      .theTeam {
-        flex-direction: column;
-        place-self: center;
-        margin-bottom: 6.25rem;
-
-        /* scroll container her også */
-      }
+  @media (max-width: 1200px) {
+    .theTeam {
+      margin-bottom: 4rem;
+      overflow-x: auto;
+      grid-column: 1 /-1;
+      padding-inline: 2rem;
     }
   }
 </style>

@@ -101,8 +101,6 @@ import GrowingCard from "../components/GrowingCard.astro";
       }
       .first {
         gap: 0rem;
-      }
-      article {
         display: flex;
         flex-direction: column;
 
@@ -110,10 +108,15 @@ import GrowingCard from "../components/GrowingCard.astro";
           margin-top: 2rem;
         }
       }
-      .cards {
-        margin-bottom: 4rem;
-        /* scroll container her  */
-      }
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .cards {
+      margin-bottom: 4rem;
+      overflow-x: auto;
+      grid-column: 1 /-1;
+      padding-inline: 2rem;
     }
   }
 </style>
