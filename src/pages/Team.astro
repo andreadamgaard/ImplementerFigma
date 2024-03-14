@@ -2,9 +2,10 @@
 import "../styles/global.css";
 import MainLayout from "../layout/MainLayout.astro";
 import MeetTeam from "../components/team/MeetTeam.astro";
-import TeamBottom from "../components/team";
+import TeamBottom from "../components/team/TeamBottom.astro";
 ---
 
 <MainLayout>
   <MeetTeam />
+  <TeamBottom imagePath="/src/assets/hands.png" altText="Team hands" />
 </MainLayout>

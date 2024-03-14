@@ -1,3 +1,122 @@
 ---
+import { Image } from "astro:assets";
 
+const { imagePath, altText } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/*.{jpeg,jpg,png,gif}");
+if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
 ---
+
+<section class="buttomImg">
+  <div>
+    <article class="txtTeam">
+      <h1>Contact</h1>
+      <p class="bigP">Ready To Talk?</p>
+      <p class="descriptionTeam">Posuere sollicitudin aliquam ultrices sagittis orci a scelerisque. Massa placerat duis ultricies lacus sed turpis. Pellentesque pellentesque habitant morbi tristique.</p>
+      <div class="inputTeam">
+        <input type="text" name="your mail adress" id="" placeholder="your mail address" />
+        <button class="teamBtn" type="button">Send Message</button>
+      </div>
+    </article>
+    <figure><Image class="imageTeam" src={images[imagePath]()} alt={altText} /></figure>
+  </div>
+</section>
+
+<style>
+  .buttomImg {
+    container: main-content / inline-size;
+    margin-top: 6.25rem;
+    margin-bottom: 9.39rem;
+
+    > * {
+      grid-column: content;
+      background-color: var(--bg-color-black);
+      color: var(--color-text-big-white);
+      display: grid;
+      justify-content: center;
+      grid-template-columns: 1fr 1fr;
+      max-width: 75rem;
+      place-self: center;
+      max-height: 25.74919rem;
+      border-radius: 1.875rem;
+      overflow: hidden;
+      gap: 4.5625rem;
+    }
+    .txtTeam {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 15%;
+      z-index: 2;
+
+      h1 {
+        color: var(--color-text-big-white);
+        font-family: var(--copy-font);
+        font-size: var(--font-size-1);
+        line-height: var(--lineheight-2);
+        letter-spacing: var(--letter-space-s);
+        padding: 0rem 0.9375rem;
+        background: var(--bg-color-grey);
+        width: fit-content;
+        text-transform: uppercase;
+        border-radius: 1.25rem;
+        margin-bottom: 0.75rem;
+      }
+      .bigP {
+        color: var(--color-text-big-white);
+        font-family: var(--h-font);
+        font-size: var(--font-size-4);
+        font-weight: var(--font-weight-3);
+        line-height: 3.263rem;
+        margin-bottom: 0.31rem;
+      }
+      .descriptionTeam {
+        color: var(--color-text-big-white);
+        font-size: var(--font-size-1);
+        line-height: var(--lineheight-2);
+        margin-bottom: 0.75rem;
+        max-width: 30.5rem;
+      }
+      .inputTeam {
+        display: flex;
+        gap: 1.75rem;
+        input {
+          background-color: var(--bg-color);
+          border: 1px solid #c1c1c1;
+          border-radius: 3.375rem;
+          font-size: var(--font-size-1);
+          color: #a9a9a9;
+          max-width: 19rem;
+          padding: 1.375rem 1.25rem;
+        }
+
+        .teamBtn {
+          padding: 1rem 1.3125rem;
+          width: fit-content;
+          border-radius: 2.625rem;
+          background-color: var(--bg-color-green);
+        }
+      }
+    }
+
+    figure {
+      display: grid;
+      align-items: center;
+      position: relative;
+      .imageTeam {
+        z-index: 1;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        right: 51%;
+        top: 9%;
+        background: url("/images/pattern.svg");
+        background-repeat: no-repeat;
+        width: 18.16231rem;
+        height: 19.2325rem;
+        transform: rotate(-107.68deg);
+        z-index: 0;
+      }
+    }
+  }
+</style>
