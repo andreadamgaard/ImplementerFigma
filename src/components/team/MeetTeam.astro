@@ -1,0 +1,112 @@
+---
+import TeamCard from "../TeamCard.astro";
+---
+
+<section>
+  <article class="teamTxt">
+    <div class="theTxtTeam">
+      <h1>Meet Our Great Team</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. enim ad minim veniam, quis nostrud exercitation.</p>
+    </div>
+    <div class="teamBtn">
+      <button type="button">Join our team</button>
+    </div>
+  </article>
+  <div class="theTeamGrid">
+    <TeamCard imagePath="/src/assets/employee.png" altText="Sarah Jasmine" variant="yellow" title="CEO at Company" name="Sarah Jasmine" disription="Leverage agile frameworks to provide a robust synopsis for high level overviews." />
+    <TeamCard imagePath="/src/assets/employee2.png" altText="John Carter" variant="black" title="Manager" name="John Carter" disription="Leverage agile frameworks to provide a robust synopsis for high level overviews." />
+    <TeamCard imagePath="/src/assets/employee3.png" altText="Daisy Stella" variant="black" title="CEO at Company" name="Sarah Jasmine" disription="Leverage agile frameworks to provide a robust synopsis for high level overviews." />
+    <TeamCard imagePath="/src/assets/employee.png" altText="Maya Elizabeth" variant="black" title="CEO at Company" name="Maya Elizabeth" disription="Leverage agile frameworks to provide a robust synopsis for high level overviews." />
+    <TeamCard imagePath="/src/assets/employee2.png" altText="Ryan Jackson" variant="black" title="Manager" name="Ryan Jackson" disription="Leverage agile frameworks to provide a robust synopsis for high level overviews." />
+    <TeamCard imagePath="/src/assets/employee3.png" altText="Lilly Victoria" variant="black" title="CEO at Company" name="Lilly Victoria" disription="Leverage agile frameworks to provide a robust synopsis for high level overviews." />
+  </div>
+</section>
+
+<style>
+  section {
+    container: main-content / inline-size;
+
+    display: grid;
+    /* grid-template-columns: [full-start] 1fr [content] minmax(0, var(--content-width)) 1fr [full-end]; */
+
+    margin-top: 5.95rem;
+    padding-bottom: 9.36rem;
+    > * {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .teamTxt {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 2.69rem;
+      grid-template-columns: 1fr 1fr;
+
+      .theTxtTeam {
+        margin-right: 1rem;
+
+        h1 {
+          color: var(--color-text-big);
+          font-size: var(--font-size-4);
+          font-weight: var(--font-weight-3);
+          line-height: 3.2625rem;
+        }
+        p {
+          max-width: 39.375rem;
+          color: var(--color-text-p);
+          line-height: var(--lineheight-1);
+        }
+      }
+
+      .teamBtn {
+        display: flex;
+        align-items: end;
+        button {
+          width: 10.4375rem;
+          padding: 0.9375rem 2.125rem;
+          color: var(--color-text-big-white);
+          background-color: var(--bg-color-black);
+          border-radius: 2.625rem;
+          transition: 0.5s;
+          border: solid var(--bg-color-black) 1px;
+        }
+        button:hover {
+          color: var(--bg-color-black);
+          background-color: var(--color-text-big-white);
+        }
+      }
+    }
+    .theTeamGrid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      align-content: center;
+      gap: 3.12rem;
+    }
+
+    @container main-content (width < 700px) {
+      section {
+        padding-bottom: 1rem;
+      }
+      > * {
+      }
+      .teamTxt {
+        display: flex;
+        flex-direction: column;
+
+        .teamBtn {
+          margin-top: 2rem;
+        }
+      }
+    }
+  }
+  @media (max-width: 1200px) {
+    .theTeamGrid {
+      column-gap: 0;
+      margin-bottom: 4rem;
+      overflow-x: auto;
+      grid-column: 1 /-1;
+      padding-inline: 2rem;
+      column-gap: 0;
+    }
+  }
+</style>
