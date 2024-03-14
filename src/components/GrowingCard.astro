@@ -52,7 +52,7 @@ const { iconName, Header, body } = Astro.props;
         text-decoration: none;
         transition: 0.3s;
       }
-      :hover {
+      a:hover {
         color: var(--bg-color-yellow);
       }
     }
@@ -66,5 +66,10 @@ const { iconName, Header, body } = Astro.props;
   [data-icon="arrow"] {
     width: 0.81675rem;
     height: 0.66825rem;
+    transition: all 0.3s;
+  }
+  [data-icon="arrow"]:hover {
+    scale: 1.4;
+    fill: aquamarine;
   }
 </style>
